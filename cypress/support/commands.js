@@ -42,13 +42,10 @@ Cypress.Commands.add("addBook", (title, description, authors) => {
   cy.contains("Submit").click();
 });
 
-Cypress.Commands.add("addToFavorite", (title, description, authors) => {
-  cy.contains("Add new").click();
-  cy.get("#title").type(title);
-  cy.get("#description").type(description);
-  cy.get("#authors").type(authors);
-  cy.get("#favorite").click();
-  cy.contains("Submit").click();
+Cypress.Commands.add("addToFavorite", (title) => {
+  cy.contains("Books list").click();
+  cy.contains(title);
+  cy.contains("Add to favorite").click();
 });
 
 Cypress.Commands.add("deleteBook", (title) => {
